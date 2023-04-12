@@ -23,6 +23,19 @@ const App = (props) => {
     .then((payload) => setApartments(payload))
     .catch((error) => console.log(error))
   }
+
+  const createApartment = (apartment) => {
+    fetch("/apartments", {
+      body: JSON.stringify(apartment),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then((response) => response.json())
+    .then(() => readApartments())
+    .catch((errors) => console.log(errors))
+  }
   return (
     <>
       <BrowserRouter>
@@ -31,7 +44,7 @@ const App = (props) => {
           <Route path="/" element={<Home />} />
           <Route path="/apartmentindex" element={<ApartmentIndex apartments={apartments} />} />
           <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments} />} />
-          <Route path="/apartmentnew" element={<ApartmentNew />} />
+          <Route path="/apartmentnew" element={<ApartmentNew current_user={props.current_user} createApartment={createApartment} />} />
           <Route path="/apartmentedit" element={<ApartmentEdit />} />
           <Route path="/myapartments" element={<ProtectedIndex apartments={apartments} current_user={props.current_user} />} />
           <Route path="*" element={<NotFound />} />
