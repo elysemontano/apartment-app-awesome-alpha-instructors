@@ -30,7 +30,7 @@ const App = (props) => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/apartmentindex" element={<ApartmentIndex apartments={apartments} />} />
-          <Route path="/apartmentshow" element={<ApartmentShow />} />
+          <Route path="/apartmentshow/:id" element={<ApartmentShow apartments={apartments} />} />
           <Route path="/apartmentnew" element={<ApartmentNew />} />
           <Route path="/apartmentedit" element={<ApartmentEdit />} />
           <Route path="/myapartments" element={<ProtectedIndex />} />
