@@ -1,5 +1,5 @@
-user1 = User.where(email: "test@test.com").first_or_create(password: "testing123", password_confirmation: "testing123")
-user2 = User.where(email: "testing@test.com").first_or_create(password: "testing1234", password_confirmation: "testing1234")
+user1 = User.create_with(password: "testing123", password_confirmation: "testing123").find_or_create_by(email: "test@test.com")
+user2 = User.create_with(password: "12345678test", password_confirmation: "12345678test").find_or_create_by(email: "another_test@test.com")
 
 user1_apartments = [
   {
@@ -33,11 +33,11 @@ user2_apartments = [
 
 
 user1_apartments.each do |apartment|
-    user1.apartments.create(apartment)
+    user1.apartments.create! apartment
     p "created: #{apartment}"
 end
 
 user2_apartments.each do |apartment|
-    user2.apartments.create(apartment)
+    user2.apartments.create! apartment
     p "created: #{apartment}"
 end
