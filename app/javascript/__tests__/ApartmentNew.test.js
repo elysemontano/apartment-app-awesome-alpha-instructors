@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import {render, screen} from "@testing-library/react"
 import { BrowserRouter } from "react-router-dom"
-import ApartmentNew from "../pages/ApartmentNew"
+import ApartmentNew from "../components/pages/ApartmentNew"
 
 describe("<ApartmentNew />", () => {
   beforeEach(() => {

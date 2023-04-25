@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import {render, screen} from "@testing-library/react"
 import { BrowserRouter } from "react-router-dom"
-import ProtectedIndex from "../pages/ProtectedIndex"
+import ProtectedIndex from "../components/pages/ProtectedIndex"
 
 describe("<ProtectedIndex />", () => {
   beforeEach(() => {
